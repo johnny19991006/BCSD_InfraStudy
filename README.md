@@ -34,7 +34,7 @@
 <table>
   <tbody>
     <tr>
-      <td align="center" valign="top" width="14.28%"><img src="https://avatars.githubusercontent.com/u/17216686?v=4" width="100px;" alt="choiseonmun"/><br /><sub><a href="https://github.com/choiseonmun"><b>choiseonmun</b></a></sub><br /></td>
+      <td align="center" valign="top" width="14.28%"><img src="." width="100px;" alt="장준영"/><br /><sub><a href="https://github.com/johnny19991006"><b>장준영</b></a></sub><br /></td>
     </tr>
   </tbody>
 </table> 
