@@ -34,7 +34,20 @@
 <table>
   <tbody>
     <tr>
-      <td align="center" valign="top" width="14.28%"><img src="." width="100px;" alt="장준영"/><br /><sub><a href="https://github.com/johnny19991006"><b>장준영</b></a></sub><br /></td>
+      <td align="center" valign="top" width="14.28%"><img src="https://github.com/account" width="100px;" alt="장준영"/><br /><sub><a href="https://github.com/johnny19991006"><b>장준영</b></a></sub><br /></td>
+      <td align="center" valign="top" width="14.28%"><img src="https://avatars.githubusercontent.com/u/127578418?v=4" width="100px;" alt="이현수"/><br /><sub><a href="https://github.com/20HyeonsuLee"><b>이현수</b></a></sub><br /></td>
+      <td align="center" valign="top" width="14.28%"><img src="https://avatars.githubusercontent.com/u/72592302?v=4" width="100px;" alt="배진호"/><br /><sub><a href="https://github.com/BaeJinho4028"><b>배진호</b></a></sub><br /></td>
+      <td align="center" valign="top" width="14.28%"><img src="https://avatars.githubusercontent.com/u/142300831?v=4" width="100px;" alt="확현식"/><br /><sub><a href="https://github.com/Choon0414"><b>황현식</b></a></sub><br /></td>
+      <td align="center" valign="top" width="14.28%"><img src="https://avatars.githubusercontent.com/u/106418303?v=4" width="100px;" alt="박다희"/><br /><sub><a href="https://github.com/daheeParkk"><b>박다희</b></a></sub><br /></td>
+      <td align="center" valign="top" width="14.28%"><img src="https://avatars.githubusercontent.com/u/112807640?v=4" width="100px;" alt="허준기"/><br /><sub><a href="https://github.com/dradnats1012"><b>허준기</b></a></sub><br /></td>
+      <td align="center" valign="top" width="14.28%"><img src="https://avatars.githubusercontent.com/u/149302959?v=4" width="100px;" alt="서정빈"/><br /><sub><a href="https://github.com/duehee"><b>서정빈</b></a></sub><br /></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top"><img src="https://avatars.githubusercontent.com/u/46699595?v=4" width="100px;" alt="박성빈"/><br /><sub><a href="https://github.com/ImTotem"><b>박성빈</b></a></sub><br /></td>
+      <td align="center" valign="top"><img src="https://avatars.githubusercontent.com/u/148550522?v=4" width="100px;" alt="김원경"/><br /><sub><a href="https://github.com/kwoo28"><b>김원경</b></a></sub><br /></td>
+      <td align="center" valign="top"><img src="https://avatars.githubusercontent.com/u/103095432?v=4" width="100px;" alt="김성재"/><br /><sub><a href="https://github.com/seongjae6751"><b>김성재</b></a></sub><br /></td>
+      <td align="center" valign="top"><img src="https://avatars.githubusercontent.com/u/21010656?v=4" width="100px;" alt="송선권"/><br /><sub><a href="https://github.com/songsunkook"><b>송선권</b></a></sub><br /></td>
+      <td align="center" valign="top" colspan="3"></td> <!-- 빈 칸 추가, 필요에 따라 더 추가 가능 -->
     </tr>
   </tbody>
-</table> 
+</table>
