@@ -42,7 +42,7 @@ AWS에서 제공하는 클라우드 컴퓨팅 서비스
 
 인스턴스 유형에 __타입__ 이 존재
 - 사용 목적(서버, 머신러닝, 게임) 에 따라 타입별로 인스턴스에 이름 부여 (t타입, m타입, inf타입 ...)
-![[image.png]]
+![image](https://github.com/user-attachments/assets/fdc30698-5ba7-4c29-b288-953f8b7bd8a3)
 - 범용 : #vCPU, 메모리, 네트워크, 저장 공간 등이 평균적인 사양으로 제공
 - 컴퓨팅 최적화 : 메모리 대비 #vCPU 비율이 높음
 - 메모리 최적화 : 메모리 용량이 훨씬 큼
@@ -77,7 +77,7 @@ AWS에서 제공하는 클라우드 컴퓨팅 서비스
 
 # VPC(Virtual Private Cloud)
 
-![[image (1).png]]
+![image (1)](https://github.com/user-attachments/assets/b037b2fc-b4c0-4f67-b004-6fbd3b95de98)
 ```
 AWS 클라우드에서 논리적으로 격리된 공간을 프로비저닝하여 고객이 정의하는 가상 네트워크에서 AWS 리소스 시작 가능
 ```
@@ -102,7 +102,7 @@ AWS 클라우드에서 논리적으로 격리된 공간을 프로비저닝하여
 
 ### #VPC 구축 과정
 
-![[image (2).png]]
+![image (2)](https://github.com/user-attachments/assets/aeccf180-f259-4d4f-9d89-7b6410463536)
 
 - VPC의 IP 범위를 사설아이피 대역에 맞춤
 	- #사설IP : 내부 네트워크 내에서 위치를 찾아갈 때 사용 - 우리집 주소 ( #퍼블릭IP ) - 안방 ( #사설IP )  --> 
@@ -116,7 +116,7 @@ AWS 클라우드에서 논리적으로 격리된 공간을 프로비저닝하여
 		- #라우터 : 목적지,  #라우팅테이블 : 이정표
 		- 라우터로 향한 데이터는 각각 정의된 라우팅테이블에 따라 작동
 - #인터넷게이트웨이 : VPC와 인터넷을 연결해주는 하나의 관문
-	- ![[image (3).png]]
+	- ![image (3)](https://github.com/user-attachments/assets/e145197d-a2d0-46c2-a226-aa3cdd0737b9)
 	- 목적지의 주소가 172.31.0.0 이 아니면 IGA A로 보내라는 뜻
 	- #퍼블릭서브넷 : 인터넷과 연결되어 있는 서브넷
 	- #프라이빗서브넷 : 인터넷과 연결되어 있지 않는 서브넷
@@ -136,7 +136,7 @@ AWS 클라우드에서 논리적으로 격리된 공간을 프로비저닝하여
 IP 네트워크의 논리적인 영역을 부분적으로 나누 하위 망
 VPC에서도 서브넷을 통해 네트워크 분리
 ```
-![[image (4).png]]
+![image (4)](https://github.com/user-attachments/assets/541c6dad-40b1-46df-b60d-1fb2743c0920)
 
 - https://medium.com/harrythegreat/aws-%EA%B0%80%EC%9E%A5%EC%89%BD%EA%B2%8C-vpc-%EA%B0%9C%EB%85%90%EC%9E%A1%EA%B8%B0-71eef95a7098 
 - https://velog.io/@yenicall/AWS-VPC%EC%9D%98-%EA%B0%9C%EB%85%90
