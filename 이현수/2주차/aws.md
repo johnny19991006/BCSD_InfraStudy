@@ -43,25 +43,25 @@
 2. 빌드 서버의 jenkins홈페이지에 들어가서 item을 추가한다.
 3. 추가한 item의 구성을 설정한다.
   - CI할 GitHub주소를 설정한다.
-  ![alt text](image.png)
+  ![alt text](이미지/image.png)
   - 빌드할 때 사용할 JDK를 설정한다.
-  ![alt text](image-1.png)
+  ![alt text](이미지/image-1.png)
   - 소스코드 관리에서 어느 브랜치의 소스코드를 CI할것인지 설정한다.
-  ![alt text](image-2.png)
+  ![alt text](이미지/image-2.png)
   - **실제 빌드 설정(중요)**
-  ![alt text](image-7.png)
-  ![alt text](image-8.png)
-  ![alt text](image-9.png)
-  ![alt text](image-10.png)
-  ![alt text](image-11.png)
+  ![alt text](이미지/image-7.png)
+  ![alt text](이미지/image-8.png)
+  ![alt text](이미지/image-9.png)
+  ![alt text](이미지/image-10.png)
+  ![alt text](이미지/image-11.png)
   - 빌드 산출물을 어떻게 할것인지 설정
-  ![alt text](image-12.png)
-  ![alt text](image-13.png)
+  ![alt text](이미지/image-12.png)
+  ![alt text](이미지/image-13.png)
   - GitHub에서 Merge가 될 때 자동 배포를 하려면 빌드 유발 설정을 한다.
-  ![alt text](image-3.png)
-  ![alt text](image-4.png)
-  ![alt text](image-5.png)
-  ![alt text](image-6.png)
+  ![alt text](이미지/image-3.png)
+  ![alt text](이미지/image-4.png)
+  ![alt text](이미지/image-5.png)
+  ![alt text](이미지/image-6.png)
 
 #### 빌드 서버가 존재하는 이유
 빌드를 하는 데에는 많은 리소스(cpu, ram)가 필요하기 때문에 빌드 서버를 따로 구성한다. 만약 프로젝트 서버에서 빌드도 같이 하게 되면 자원 부족 문제로 프로젝트 서버가 터질수도 있을 것 같다.
@@ -75,35 +75,35 @@
 다음은 Nginx스크립트이다.
 
 `api.stage.koreatech.in`이라는 요청이 들어오면 WAS가 떠있는 localhost:8085로 해당 요청을 연결시켜준다.
->![alt text](image-14.png)
+>![alt text](이미지/image-14.png)
 
 ### DB서버
 DB서버에서는 Mysql, Redis등과 같은 DB가 설치되어 있다.
 
 
 # 실습
-![alt text](<스크린샷 2024-07-14 오후 1.51.45.png>)
+![alt text](이미지/1.png)
 
-![alt text](<스크린샷 2024-07-14 오후 1.52.46.png>)
+![alt text](이미지/2.png)
 
 처음에 만들때 캡쳐한건데 AMI잘못선택했음. Ubuntu선택했어야했는데.. 나중에 바꿨는데 캡쳐를 못해서 일단 이거로 첨부
-![alt text](<스크린샷 2024-07-14 오후 1.53.08.png>)
+![alt text](이미지/3.png)
 
-![alt text](<스크린샷 2024-07-14 오후 1.53.13.png>)
+![alt text](이미지/4.png)
 
-![alt text](<스크린샷 2024-07-14 오후 3.45.03.png>)
+![alt text](이미지/5.png)
 
-![alt text](<스크린샷 2024-07-14 오후 3.47.13.png>)
+![alt text](이미지/6.png)
 
-![alt text](<스크린샷 2024-07-14 오후 3.48.01.png>)
+![alt text](이미지/7.png)
 
-![alt text](<스크린샷 2024-07-14 오후 3.48.51.png>)
+![alt text](이미지/8.png)
 
-![alt text](<스크린샷 2024-07-14 오후 3.48.24.png>)
+![alt text](이미지/9.png)
 
- ![alt text](<스크린샷 2024-07-14 오후 3.49.10.png>)
+ ![alt text](이미지/10.png)
 
- ![alt text](<스크린샷 2024-07-14 오후 3.51.16.png>)
+ ![alt text](이미지/11.png)
 
  젠킨스 실행이 안되서 젠킨스 실습은 여기까지...
 
