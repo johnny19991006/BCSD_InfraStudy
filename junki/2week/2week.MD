@@ -236,6 +236,7 @@ GitHub 링크를 연결해준다
 `Remote directory` 를 통해서 파일을 전송한 원격 서버의 디렉토리를 정해준다
 `Exec command`를 통해서 파일을 전송한 후 원격 서버에서 실행할 명령을 정해준다
 
+권한은 Credential에서 SSH 키를 통해서 접속하는 사용자의 권한을 알 수 있다고 한다
 
 ## Jenkins 빌드 과정
 ### 빌드 트리거
@@ -252,3 +253,6 @@ GitHub 링크를 연결해준다
 
 ### 명령 실행
 파일 전송 후 `Exec command`에 있는 명령 실행 
+
+
+실습(DB서버 분리) 블로깅 : https://velog.io/@dradnats1012/DB-%EC%84%9C%EB%B2%84-%EB%B6%84%EB%A6%AC%ED%95%98%EA%B8%B0 
