@@ -219,7 +219,7 @@ GitHub 링크를 연결해준다
 몇 개의 빌드를 저장할 지 선택할 수 있다 
 이걸 통해서 롤백을 하는 것 같다
 
-![image (7)](https://github.com/user-attachments/assets/7c603c14-7a7a-4f7a-b249-fd5011485694)
+
 `SCM` 부분이다
 
 `Repository URL`에 있는 Git 프로젝트에 접근을 한다
