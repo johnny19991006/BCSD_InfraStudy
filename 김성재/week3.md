@@ -68,61 +68,78 @@ docker의 컨테이너들은 각기 분리 및 독립 적이라고 생각 할 �
 ![](https://velog.velcdn.com/images/seongjae6751/post/c450b439-3462-46aa-b6fa-ab0a4dc49a37/image.png)
 하지만 docker는 OS단까지 내려가는 것이 아니라 실행환경만 독립적으로 돌리는 것이라 컴퓨터에 직접 요소들을 설치한 것과 별 차이 없는 성능을 낼 수 있다. 도커는 애플리케이션을 실행하기 위해 필요한 파일과 라이브러리, 의존성 등을 패키지화하여 컨테이너라는 단위로 관리한다. 컨테이너는 호스트 운영체제와 커널을 공유하고, 다른 컨테이너와는 격리된 공간에서 동작한다. 이로 인해 컨테이너는 가볍고 빠르게 실행되며, 더욱 효율적인 자원 활용이 가능하다. 또한, 컨테이너 간의 상호작용이나 컨테이너의 삭제와 같은 작업도 간편하게 수행할 수 있다
 
-## Docker Compose
-### docker-compose를 쓰는 이유
-도커 컴포즈란 컨테이너 여럿을 띄우는 도커 애플리케이션을 정의하고 실행 하는 도구이다.
-도커 컴포즈를 사용하면 컨테이너 실행에 필요한 옵션을 docker-compose.yml이라는 파일에 적어둘 수 있고 컨테이너 간 의존성도 관리할 수 있어서 좋다.
-프론트엔드 서버, 백엔드 서버, DB서버로 구성되어 있는 웹 서비스가 있다고 하면 각 서버를 docker container로 연결하여 동작시키고 docker compose를 사용하여 해당 컨테이너들을 관리할 수 있다.
+### docker image와 docker container
+#### docker image란?
+application을 포장 및 전송하기 위해 도커는 docker image를 사용한다. docker image는 파일로 어플리케이션 실행에 필요한 독립적인 환경을 포함하며, 런타임 환경을 위한 일종의 템플릿이다.
 
-### docker-compose 파일 작성하기
+도커 이미지는 소스 코드, 라이브러리, 종속성, 도구 및 응용 프로그램을 실행하는데 필요한 기타 파일을 포함하는 불변 파일이다.
+이미지는 읽기 전용으로 스냅샷이라고도 하며, 특정 시점의 애플리케이션과 가상 환경을 나타낸다.
+이러한 일관성은 도커의 큰 특징 중 하나로 개발자가 안정적이고 균일한 조건에서 소프트웨어를 테스트하고 실험할 수 있도록 한다.
+ 
+이미지는 템플릿일 뿐이므로 시작하거나 실행할 수 없다. 컨테이너는 실행 중인 이미지일 뿐이기 때문이다.
+컨테이너를 생성하면 쓰기 가능한 레이어가 immutable image(불변 이미지) 위에 추가된다. 즉, 컨테이너는 수정이 가능하다.
+ 
+컨테이너를 생성하는 이미지 베이스는 별도로 존재하며 변경할 수 없다. 
+컨테이너 환경을 실행할 때는 기본적으로 컨테이너 내부에 해당 파일 시스템(도커 이미지)의 읽기-쓰기 복사본을 만든다.
+이렇게 하면 이미지 전체 복사본을 수정할 수 있는 컨테이너 레이어가 추가된다.
+![](https://velog.velcdn.com/images/seongjae6751/post/1c45d9ec-3f5c-440c-80bb-1f57834e93aa/image.png)
 
-#### docker compose 기본 작성법
+하나의 베이스 이미지에서 도커 이미지를 무제한으로 생성할 수 있다.
+이미지의 초기 상태를 변경하고 기존 상태를 저장할 때마다 추가 레이어가 있는 새 템플릿을 만든다.
+ 
+따라서 도커 이미지는 여러 개의 레이어로 구성될 수 있으며, 각각은 다르지만 이전 레이어에서 비롯된다.
+이미지 계층은 컨테이너 계층을 사용하여 가상 환경을 시작할 때 추가된 읽기 전용 파일을 나타낸다.
 
-docker compose는 docker-compose.yml 파일을 작성하여 실행할 수 있다.
-docker-compose.yml 파일은 yaml 형식으로 작성해야 한다.
+![](https://velog.velcdn.com/images/seongjae6751/post/250e9153-eafb-4568-b66b-190be6167423/image.png)
+#### docker container란?
+사용자가 기본 시스템에서 애플리케이션을 분리할 수 있는 가상화된 런타임 환경이다.
+이러한 컨테이너는 응용프로그램을 빠르고 쉽게 시작할 수 있는 portable units 이다.
+ 
+중요 기능은 컨테이너 내부에서 실행되는 컴퓨팅 환경의 표준화다. (standardization of the computing environment running inside the container.)
+응용 프로그램이 동일한 환경에서 작동하도록 할 뿐 아니라 다른 사람과의 공유도 단순화한다.
+ 
+컨테이너는 자율적(autonomous)이기 때문에 strong isolation을 제공하며 서로 방해하지 않는다. -> 격리
+ 
+하드웨어 수준에서 가상화가 이루어지는 VM과 달리 컨테이너는 애플리케이션 계층에서 가상화된다.
+하나의 머신을 활용하고 커널을 공유하며 분리된 프로세스를 실행하기 위한 운영 체제를 가상화할 수 있다.
+따라서 컨테이너가 매우 가벼워져 리소스를 많이 사용하지 않을 수 있다.
+![](https://velog.velcdn.com/images/seongjae6751/post/67745b87-a710-4de7-9d8a-058f44e8d9e2/image.png)
 
-> #### docker compose 속성
-* version
-  docker compose의 파일 포맷 버전을 지정한다.
-  기본적으로 버전 3을 사용하는 것이 일반적이다.
-* services
-  서비스의 이름
-* image
-  docker container의 이름을 정의한다.
-  Docker Hub에 있는 이미지를 사용하여 docker container를 작성할 경우 image를 설정할 수 있다.
-* restart
-  docker container가 다운되었을 경우, 항상 재시작하라는 설정이다.
-* volumnes
-  docker run 명령의 -v 옵션과 동일한 역할을 한다.
-  여러 개의 volume을 지정할 수 있으며 리스트처럼 작성하면 된다.
-* environment
-  dockerfile의 ENV 옵션과 동일한 역할을 한다.
-  참고로, env_file 옵션으로 환경변수 값이 들어있는 파일을 읽을 수도 있다. (패스워드 등의 보안을 위한 방법)
-* ports
-  docker run 명령의 -p 옵션과 동일한 역할을 한다.
-* build
-  docker image를 Dockerfile 기반으로 작성 시 사용한다.
-* depends_on
-  컨테이너가 실행되는 순서를 제어
-  app 안에 " depend_on : - db " 설정이 있는 경우, 우선적으로 db 컨테이너가 먼저 실행되고 그 후에 app컨테이너가 실행되어 app 컨테이너가 db 컨테이너로 접속을 시도하도록 컨테이너 실행 순서를 제어하는 것이다.
 
-### docker-compose 명령어
+## Docker NetWork
+도커 네트워크(Docker Network) 란 Docker 컨테이너 간의 통신을 관리하고 격리하기 위한 기능을 제공하는 것이다.
+컨테이너화된 애플리케이션은 여러개의 컨테이너로 구성될 수 있는데, 이들 컨테이너가 서로 통신하고 데이터를 주고 받아야 할 경우가 있다.
+도커 네트워크를 통해 이러한 컨테이너간 통신을 쉽게 설정하고 관리할 수 있도록 도와줍니다.
+정리하자면, 같은 호스트 내에서 실행중인 컨테이너 간 연결할 수 있도록 돕는 논리적 네트워크 개념이다.
+
+```yml
+ version: '3'
+
+services:
+  front: # front container
+    image: frontend
+    networks:
+      - mynetwork
+  backend: # backend container
+    image: backend
+    networks:
+      - mynetwork
+  db: # db container
+    image: mysql
+    networks:
+      - mynetwork
+    environment:
+      MYSQL_ROOT_PASSWORD: mypassword
+
+networks:
+  mynetwork:
 ```
-# 컨테이너 실행 
-docker-compose up -d // 도커 백그라운드 실행
-docker-compose up --force-recreate // 도커 컨테이너 새로 만들기
-docker-compose up --build // 도커 이미지 빌드 후 compose up
-```
-
-db, frony, back 모두 docker file을 만들고 docker-compose로 한번에 실행하면 하나의 컨테이너 안에 3개의 컨테이너가 구동되는 것을 볼 수 있다.
-![](https://velog.velcdn.com/images/seongjae6751/post/db4267a0-a47f-40fe-94d3-678d834c4ec0/image.png)
-
-# 컨테이너 내리기
-docker-compose down // 컨테이너 stop & 삭제
-docker-compose stop
+위의 yml 은 Docker Compose 로 구성한 다중 컨테이너이다.
+fronted,backend,db 컨테이는 모두 networks 라는 항목을 통해 mynetwork 라는 네트워크로 묶여 있습니다.
+이렇게 여러 컨테이너로 구성된 애플리케이션은 같은 네트워크 내에서 통신하여 데이터를 주고받을 수 있다
 
 ## 출처
 * https://www.youtube.com/watch?v=chnCcGCTyBg
 * https://ebbnflow.tistory.com/200
-* https://velog.io/@sorzzzzy/Docker-9.-%EB%8F%84%EC%BB%A4-%EC%BB%B4%ED%8F%AC%EC%A6%88%EB%9E%80
-* https://velog.io/@baeyuna97/Docker-compose-%EB%9E%80
+* https://sunrise-min.tistory.com/entry/Docker-Container%EC%99%80-Image%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80
+* https://velog.io/@choidongkuen/%EC%84%9C%EB%B2%84-Docker-Network-%EC%97%90-%EB%8C%80%ED%95%B4
