@@ -65,7 +65,7 @@ docker push my-dockerhub-username/srepository:latest
 ```
 그런 다음 도커 스웜 서비스를 생성하면 된다.
 ```
-docker service create --name roomescape-service --replicas 3 -p 8080:8080 your-dockerhub-username/spring-roomescape-playground:latest
+docker service create --name roomescape-service --replicas 3 -p 8080:8080 my-dockerhub-username/spring-roomescape-playground:latest
 ```
 
 ### 서비스 업데이트
