@@ -46,7 +46,7 @@
 
 그리고 워커노드로 등록하고 싶은 `EC2`에 가서 
 > docker swarm join --token <발급 받은 토큰> <매니저 노드 ip>:2377
-을 입력하여 워커 노드로 등록할 수 있따
+을 입력하여 워커 노드로 등록할 수 있다
 
 <img width="239" alt="image (2)" src="https://github.com/user-attachments/assets/ea0d53cf-7090-4ef9-bb08-78d24ed3220c">
 
