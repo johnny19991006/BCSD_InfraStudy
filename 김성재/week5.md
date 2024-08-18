@@ -57,7 +57,6 @@ docker compose는 container를 정의하는 것이고 docker swarm은 서비스�
     * 컨테이너나 노드의 장애 시 자동으로 복구하는 기능이다.
 * 모니터링과 로깅:
     * 컨테이너나 노드의 상태를 모니터링하고, 로그를 수집하여, 애플리케이션의 성능과 문제점을 분석하는 기능이다.
-* 보안과 네트워크 관리
 
 ### 대표적인 컨테이너 오케스트레이션
 ![](https://velog.velcdn.com/images/seongjae6751/post/8850c583-5c43-483e-b65d-87cdbb842781/image.png)
@@ -70,7 +69,7 @@ docker compose는 container를 정의하는 것이고 docker swarm은 서비스�
     - 스케일링 기능 강화(Replication Controller: 컨테이너 수를 동적으로 조절)
     - 서비스 디스커버리 기능 강화(DNS 기반)
 * 가장 기능이 풍부하고 널리 사용되는 컨테이너 오케스트레이션 프레임워크이다.
-* VM환경, 퍼블릿 클라우드, 베어 메탈 등의 다양한 환경에서 작동하도록 설계되어 있다
+* VM환경, 퍼블릭 클라우드, 베어 메탈 등의 다양한 환경에서 작동하도록 설계되어 있다
   ![](https://velog.velcdn.com/images/seongjae6751/post/ea31d89b-0f0f-46f6-a1a9-7f8e2aa24058/image.png)
 3. EKS(Amazon)
 * AWS에서 제공하는 관리형 kubernetes 서비스로 사용자는 kubernetes api로 EKS 클러스터를 관리할 수 있다.
@@ -93,7 +92,7 @@ docker compose는 container를 정의하는 것이고 docker swarm은 서비스�
   swarm 서비스의 외부 퍼블릭 트래픽을 관리하는 네트워크
     * ingress 네트워크는 docker swarm 내부의 서비스를 외부와 연결하는 역할을 하며 로드 밸런싱 기능도 제공한다.
     * ingress 네트워크는 스웜 클러스터를 생성하면 자동으로 생성되는 네트워크로서, 스웜모드를 사용할 때만 유효하다.
-* 텍스트 클러스터
+
 
 
 
