@@ -126,4 +126,107 @@
 #### 상태에 따른 비용 청구 여부
 ![alt text](이미지/image4.png)
 
-> 이번주는 여러가지 이슈로 인해서 AWS기초 강좌 10화 까지 밖에 공부하지 못했습니다..
+### Autoscaling
+- Horizontal Scale을 위해 지원하는 서비스가 AWS Autoscaling
+- 정확한 수의 ec2인스턴스를 보유하도록 보장
+    - 최대 인스턴스와 최소 인스턴스 숫자를 지정할 수 있다.
+- CPU부하에 따라 인스턴스 크기를 늘리거나 줄인다.
+#### Vertical Scale(Scale Up)
+- ec2의 성능 자체를 높이는것
+- 성능대비 비용 상승률이 높음
+
+#### Horizontal Scale(Scale Out)
+- ec2의 인스턴스의 개수를 늘림
+- 클라우드에서 선호하는 방식이다.
+
+### ELB
+- 다수의 트래픽을 분산시켜주는 서비스
+- Health Check: 직접 트래픽을 발생시켜 Instance가 살아있는지 체크
+- Autoscaling과 연동 가능
+- 여러 가용 영역에 분산 가능
+- 지속적으로 IP주소가 바뀌며 IP고정 부락능: 항상 도메인 기반으로 사용
+- 총 4가지 종류
+    - Application Load Balancer
+        - 똑똑한 녀석
+        - image.sample.com → 이미지 서버로 전송, web.sample.com → 웹 서버로 트래픽 분산
+    - Network Load Balancer
+        - 빠른 녀석
+        - TCP기반의 빠른 트래픽 분산
+        - Elastic IP 할당 가능
+    - Classic Load Balancer
+        - 엣날 녀석
+    - Gateway Load Balancer
+        - 먼저 트래픽을 체크하는 녀석
+        - 가상 어플라이언스 배포/확장 관리를 위한 서비스
+
+# S3 실습
+로컬 Spring Boot로 S3를 이용해서 이미지를 업로드, 다운로드 하는 API를 만드는 실습을 해보려고 한다.
+
+## 버킷 생성
+먼저 버킷을 생성한다.
+![alt text](이미지/image5.png)
+
+## IAM 생성 과정
+루트 유저로는 API를 이용해서 S3에 이미지를 업로드 할 수 없다. 따라서 S3접근용 IAM를 만들어준다.
+
+### 유저 이름 설정
+![alt text](이미지/image.7.png)
+
+### 권한 설정
+![](https://i.imgur.com/j2MP25Z.png)
+
+### 사용자 생성
+![](https://i.imgur.com/m9tegNi.png)
+
+### 생성 완료
+![](https://i.imgur.com/eRI5EGU.png)
+
+## IAM유저의 엑세스, 시크릿키 발급
+
+### 생성된 사용자를 클릭하여 접속
+![](https://i.imgur.com/aN4lAGK.png)
+
+### 보안 자격 증명 탭의 엑세스 키 만들기
+![](https://i.imgur.com/B8Ss3Jo.png)
+
+### 로컬에서 사용할것이기 때문에 로컬 코드로 설정
+![](https://i.imgur.com/DixyZeb.png)
+
+### 엑세스 키 생성 완료
+![](https://i.imgur.com/VfsV9YQ.png)
+
+## S3 이미지 업/다운로드 코드 작성
+
+### 의존성 추가
+`implementation 'software.amazon.awssdk:s3:2.20.9'`
+
+### yml에 발급받은 키, 정보 추가
+```yml
+s3:
+  access-key: XXXXXXXXXXXXXX
+  secret-key: XXXXXXXXXXXXXXXXXXXXXXX
+  region: ap-northeast-2
+  bucket-name: infra-study-v2
+```
+
+### 컨트롤러 작성
+![](https://i.imgur.com/xSq3ZVV.png)
+
+### S3서비스코드 작성
+
+#### 클래스 초기화
+![](https://i.imgur.com/aAHnZij.png)
+
+#### 이미지 업로드 비즈니스 로직 작성
+![](https://i.imgur.com/PgpdtEw.png)
+
+#### 이미지 다운로드 비즈니스 로직 작성
+![](https://i.imgur.com/JoqbAcK.png)
+
+## API 테스트
+
+### 업로드
+![](https://i.imgur.com/vgNF0jJ.png)
+
+### 다운로드
+![](https://i.imgur.com/ANnZBbG.png)
