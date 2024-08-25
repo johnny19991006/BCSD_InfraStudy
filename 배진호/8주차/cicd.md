@@ -179,5 +179,5 @@ Deploy to Amazon ECS (푸시 될 때 마다 동작한다.)
 5. 빌드 산출물인 .jar실행파일을 실제로 실행할 서버(KOIN_STAGE)에 전송한다.
 6. KOIN_STAGE서버 에서 전송받은 .jar파일을 실행한다.
 
-### +) 추가적으로 Docker Swarm이 사라진 버전인 간략화된 Koin 인프라 구조를 그려보았다. (이상한부분 지적해주시면 감사드립니다.
-<img width="580" alt="image" src="https://github.com/user-attachments/assets/da4f4daf-b8a1-4b59-99ea-98ebf56cacf5">
+### +) 추가적으로 Docker Swarm이 사라진 버전인 간략화된 Koin 인프라 구조를 그려보았다. (이상한부분 지적해주시면 감사드립니다.)
+<img width="583" alt="image" src="https://github.com/user-attachments/assets/a9f08971-e19c-4749-97f5-7c9cd3e958d9">
